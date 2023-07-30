@@ -293,6 +293,23 @@ get_header('newtheme');
         <?php wp_reset_postdata(); ?>
 
     </section>
+
+    <section class="Institutions">
+      <header class="SectionHeader">
+        <h1 class="SectionHeader__heading">Institutions we help</h1>
+      </header>
+      <main class="Institutions__content">
+        <div class="Institutions__container">
+        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/institutions/apexart.png" alt="apexart">
+          <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/institutions/harvard.png" alt="Harvard">
+          <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/institutions/node.png" alt="NODE">
+          <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/institutions/tate.png" alt="Tate">
+          <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/institutions/barbican.png" alt="Barbican">
+          <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/institutions/CCOA.png" alt="CCOA">
+          <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/institutions/hammer.png" alt="Hammer">
+        </div>
+      </main>
+    </section>
     <?php endif; ?>
 </main>
 
