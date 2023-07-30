@@ -279,11 +279,9 @@ get_header('newtheme');
                 <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
                 <article class="TestimonialPost">
                     <div class="TestimonialPost__content">
-                        <?php the_title(); ?>
                         <?php the_content(); ?>
-                        <?php $profesion = get_post_meta(get_the_ID(), 'testimonio_profesion', true); ?>
                         <article class="TestimonialPost__author">
-                            <?php echo $profesion; ?>
+                          <?php the_title(); ?>
                         </article>
                     </div>
                 </article>
