@@ -3,7 +3,7 @@
 get_header('newtheme');
 ?>
 
-<main>
+<main class="Homepage">
     <section class="Hero">
         <header class="Hero__header">
             <h1><?php the_title(); ?></h1>
