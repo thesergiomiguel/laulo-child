@@ -4,6 +4,7 @@ get_header('newtheme');
 ?>
 
 <main class="Homepage">
+  <?php if (!is_user_logged_in()): ?>
     <section class="Hero">
         <header class="Hero__header">
             <h1><?php the_title(); ?></h1>
@@ -27,6 +28,7 @@ get_header('newtheme');
             </aside>
         </main>
     </section>
+  <?php endif; ?>
 
 
     <? $args_destacadas = array(
