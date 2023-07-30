@@ -132,16 +132,16 @@ get_header('newtheme');
                                 <?php if ($deadline) { ?>
                                 <?php if (laulo_deadline_ended($deadline)) { ?>
 
-                                <i class="material-icons">alarm_off</i><span class="capitalise">Deadline Ended</span>
+                                <span class="capitalise">Deadline Ended</span>
 
                                 <?php } else { ?>
 
-                                <i class="material-icons">alarm</i><?php echo laulo_get_time_left($deadline); ?>
+                                <?php echo laulo_get_time_left($deadline); ?>
 
                                 <?php } ?>
                                 <?php } else { ?>
 
-                                <i class="material-icons">alarm</i><?php _e('No deadline'); ?>
+                                <?php _e('No deadline'); ?>
 
                                 <?php } ?>
 
