@@ -14,32 +14,10 @@
 				<li>
 					<article class="Footer__copyright">© <?= date("Y"); ?></article>
 				</li>
-				<?php
-				wp_nav_menu(
-					array(
-						'theme_location'  => 'footer-menu',
-						'menu'            => '',
-						'container'       => 'div',
-						'container_class' => 'menu-{menu slug}-container',
-						'container_id'    => '',
-						'menu_class'      => 'menu',
-						'menu_id'         => '',
-						'echo'            => true,
-						'fallback_cb'     => 'wp_page_menu',
-						'before'          => '',
-						'after'           => '',
-						'link_before'     => '',
-						'link_after'      => '',
-						'items_wrap'      => '<ul id="menu-footer">%3$s</ul>',
-						'depth'           => 0,
-						'walker'          => ''
-					)
-				);
-				?>
-				<!-- <li><a href="/about">About</a></li>
-                <li><a href="/contact">Contact</a></li>
-                <li><a href="/legal">Copyright &amp; legal notices</a></li>
-                <li><a href="/cookies">Cookies policy</a></li>-->
+				<li><a href="/about-call-for-curators/">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/copyright-and-legal-notices/">Copyright &amp; legal notices</a></li>
+        <li><a href="/cookie-policy">Cookies policy</a></li>
 			</ul>
 		</nav>
 		<nav class="Footer__navs--social">
