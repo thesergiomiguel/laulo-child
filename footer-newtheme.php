@@ -15,7 +15,9 @@
 					<article class="Footer__copyright">© <?= date("Y"); ?></article>
 				</li>
 				<li><a href="/about-call-for-curators/">About</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li>
+          <a data-open-sidebar="contact-sidebar">Contact</a>
+        </li>
         <li><a href="/copyright-and-legal-notices/">Copyright &amp; legal notices</a></li>
         <li><a href="/cookie-policy">Cookies policy</a></li>
 			</ul>
