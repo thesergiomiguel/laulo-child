@@ -206,7 +206,7 @@ get_header('newtheme');
                     </a>
                     <div class="BlogPost__author">
                         <?php // Get the post author's display name
-								echo $author_display_name = get_the_author_meta('display_name', $post_id);
+								echo $author_display_name = get_the_author_meta('display_name', get_the_ID());
 								?>
                         <span class="BlogPost__tags">
 
