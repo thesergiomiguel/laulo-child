@@ -11,9 +11,9 @@ $args = array(
     ),
 );
 
-$blog_query = new WP_Query($args);
+$podcasts_query = new WP_Query($args);
 
-if (!$blog_query->have_posts()) {
+if (!$podcasts_query->have_posts()) {
   exit;
 }
 ?>
@@ -25,8 +25,8 @@ if (!$blog_query->have_posts()) {
 
   <main class="PageSection__content">
     <?php
-    while ($blog_query->have_posts()) {
-        $blog_query->the_post();
+    while ($podcasts_query->have_posts()) {
+        $podcasts_query->the_post();
         echo '<h3><a href="' . get_permalink() . '">' . get_the_title() . '</a></h3>';
         echo '<div>' . get_the_excerpt() . '</div>';
     }
