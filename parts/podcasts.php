@@ -1,17 +1,7 @@
 <?php
-$args = array(
-    'post_type' => 'blog',
-    'posts_per_page' => 5,
-    'tax_query' => array(
-        array(
-            'taxonomy' => 'tag-blog',
-            'field' => 'slug',
-            'terms' => 'podcast',
-        ),
-    ),
-);
+require_once __DIR__ . '/../inc/queries.php';
 
-$podcasts_query = new WP_Query($args);
+$podcasts_query = get_query_podcasts(3, array('posts_per_page' => 0));
 
 if (!$podcasts_query->have_posts()) {
   exit;
