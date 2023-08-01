@@ -1,17 +1,7 @@
 <?php
-$args = array(
-    'post_type' => 'blog',
-    'posts_per_page' => 5,
-    'tax_query' => array(
-        array(
-            'taxonomy' => 'tag-blog',
-            'field' => 'slug',
-            'terms' => 'talks',
-        ),
-    ),
-);
+require_once __DIR__ . '/../inc/queries.php';
 
-$events_query = new WP_Query($args);
+$events_query = get_query_events();
 
 if (!$events_query->have_posts()) {
   exit;

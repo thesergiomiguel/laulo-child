@@ -1,18 +1,7 @@
 <?php
-$args = array(
-    'post_type' => 'blog',
-    'posts_per_page' => 5,
-    'tax_query' => array(
-        array(
-            'taxonomy' => 'tag-blog',
-            'field' => 'slug',
-            'terms' => 'podcast',
-            'operator' => 'NOT IN',
-        ),
-    ),
-);
+require_once __DIR__ . '/../inc/queries.php';
 
-$blog_query = new WP_Query($args);
+$blog_query = get_query_blog();
 
 if (!$blog_query->have_posts()) {
   exit;
