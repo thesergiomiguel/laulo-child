@@ -7,7 +7,6 @@ $args = array(
             'taxonomy' => 'tag-blog',
             'field' => 'slug',
             'terms' => 'talks',
-            'operator' => 'NOT IN',
         ),
     ),
 );
