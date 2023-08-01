@@ -40,4 +40,3 @@ if (!$blog_query->have_posts()) {
     <button>Load More ↓</button>
   </footer>
 </section>
-
