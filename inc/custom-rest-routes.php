@@ -69,9 +69,18 @@ function custom_get_events() {
   return $posts;
 }
 
-function custom_get_members() {
+function custom_get_members($request) {
   $offset = get_offset();
-  $members = get_cfc_members(5, $offset);
+  $raw_keywords = $request->get_param('search');
+
+  if (is_string($raw_keywords)) {
+    $sanitized_keywords = sanitize_text_field($raw_keywords);
+    $keywords = explode(',', $sanitized_keywords);
+  } else {
+    $keywords = array();
+  }
+
+  $members = get_cfc_members(5, $offset, $keywords);
 
   return $members;
 }
