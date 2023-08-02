@@ -15,7 +15,7 @@ function get_query_blog($limit = 5, $extra_args = array()) {
 
   $merged = array_merge($args, $extra_args);
 
-  return new WP_Query($args);
+  return new WP_Query($merged);
 }
 
 function get_query_podcasts($limit = 5, $extra_args = array()) {
@@ -32,8 +32,6 @@ function get_query_podcasts($limit = 5, $extra_args = array()) {
   );
 
   $merged = array_merge($args, $extra_args);
-
-  // var_dump($merged);
 
   return new WP_Query($merged);
 }
@@ -53,5 +51,5 @@ function get_query_events($limit = 5, $extra_args = array()) {
 
   $merged = array_merge($args, $extra_args);
 
-  return new WP_Query($args);
+  return new WP_Query($merged);
 }

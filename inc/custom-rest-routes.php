@@ -49,7 +49,7 @@ function custom_get_blog() {
 
 function custom_get_events() {
   $offset = get_offset();
-  $query = get_query_blog(5, array('offset' => $offset));
+  $query = get_query_events(5, array('offset' => $offset));
   $posts = array();
 
   if ($query->have_posts()) {
