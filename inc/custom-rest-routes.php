@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/queries.php';
+require_once __DIR__ . '/rcp-helpers.php';
 
 function get_offset() {
   return isset($_GET['offset']) ? absint($_GET['offset']) : 0;
@@ -68,6 +69,13 @@ function custom_get_events() {
   return $posts;
 }
 
+function custom_get_members() {
+  $offset = get_offset();
+  $members = get_cfc_members(5, $offset);
+
+  return $members;
+}
+
 function custom_register_rest_routes() {
   register_rest_route('custom/v1', '/podcasts', array(
     'methods' => 'GET',
@@ -82,6 +90,11 @@ function custom_register_rest_routes() {
   register_rest_route('custom/v1', '/blog', array(
     'methods' => 'GET',
     'callback' => 'custom_get_blog',
+  ));
+
+  register_rest_route('custom/v1', '/members', array(
+    'methods' => 'GET',
+    'callback' => 'custom_get_members',
   ));
 }
 

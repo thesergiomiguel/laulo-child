@@ -1,12 +1,11 @@
 <?php
 /*
- * Template name: Editorial
+ * Template name: Community
  */
 
 get_header('newtheme');
 
-get_template_part('parts/blog');
+get_template_part('parts/find-talent');
 get_template_part('parts/events');
-get_template_part('parts/podcasts');
 
 get_footer('newtheme');
