@@ -54,3 +54,7 @@ add_action('wp_enqueue_scripts', 'custom_login_localize_script');
 
 // REST endpoints
 require_once __DIR__ . '/inc/custom-rest-routes.php';
+
+// FIXME: the parent theme consistently complains that the following is not
+// defined, so let's define it here.
+function create_post_type_html5() {}
