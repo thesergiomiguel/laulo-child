@@ -29,7 +29,7 @@ function custom_login_ajax_handler()
         'remember'      => isset($_POST['rememberme']) ? $_POST['rememberme'] : false, // Set 'remember' based on the checkbox value
     );
 
-    $user = wp_signon($creds, false);
+    $user = wp_signon($creds, true);
 
     if (is_wp_error($user)) {
         echo json_encode(array('success' => false, 'message' => 'Login failed. Please try again.'));
