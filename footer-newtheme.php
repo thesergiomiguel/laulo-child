@@ -65,6 +65,9 @@
 
 	</form>
 </aside>
+
+<?php get_template_part('parts/shared/sidebar-contact'); ?>
+
 <div class="Sidebar__backdrop"></div>
 </div>
 <script src="<?= get_stylesheet_directory_uri() ?>/client-init.js"></script>
