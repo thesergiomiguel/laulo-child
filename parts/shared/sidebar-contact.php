@@ -4,6 +4,6 @@
   </header>
 
   <main class="Contact__content">
-<?php echo do_shortcode('[contact-form-7 id="17856" title="2023 Contact Form"]'); ?>
+    <?php echo do_shortcode('[contact-form-7 id="17856" title="2023 Contact Form"]'); ?>
   </main>
 </aside>

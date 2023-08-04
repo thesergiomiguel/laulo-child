@@ -1,6 +1,6 @@
 "use strict";
 (() => {
-  // ../src/dom-scripts/carousel.ts
+  // src/dom-scripts/carousel.ts
   function getScrollingDistance(given, target) {
     if (!given) {
       return;
@@ -52,38 +52,7 @@
     });
   }
 
-  // ../src/dom-scripts/logo.ts
-  function setupLogoAnimation() {
-    const shell = document.getElementById("logo-toggle");
-    shell?.addEventListener("click", () => {
-      shell.classList.toggle("Logo__shell--toggled");
-    });
-  }
-
-  // ../src/dom-scripts/newsletter-widget.ts
-  function setupNewsletterWidget() {
-    const widget = document.getElementById("newsletter-widget");
-    const target = document.getElementById("main-footer");
-    if (!widget || !target) {
-      return;
-    }
-    widget.classList.add("NewsletterBar--visible");
-    document.getElementById("newsletter-bar-dismiss")?.addEventListener("click", () => {
-      widget.setAttribute("data-is-dismissed", "1");
-    });
-    const observer = new IntersectionObserver((entries) => {
-      const [entry] = entries;
-      if (entry.isIntersecting) {
-        widget?.setAttribute("data-has-completed", "1");
-        widget?.setAttribute("data-is-intersecting", "1");
-        return;
-      }
-      widget?.setAttribute("data-is-intersecting", "0");
-    });
-    observer.observe(target);
-  }
-
-  // ../src/dom-scripts/sidebars.ts
+  // src/dom-scripts/sidebars.ts
   var CLOSING_CLASS_NAME = "Sidebar--closing";
   var OPEN_CLASS_NAME = "Sidebar--open";
   var BACKDROP_CLASSNAME = "with-backdrop";
@@ -154,7 +123,57 @@
     });
   }
 
-  // ../src/dom-scripts/subnavs.ts
+  // src/dom-scripts/contact-sidebar.ts
+  function setupContactSidebar() {
+    const form = document.querySelector("form.wpcf7-form");
+    form?.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const data = new FormData(form);
+      const actionUrl = form.action;
+      fetch(actionUrl, { method: "post", body: data }).then((response) => {
+        if (!response.ok) {
+          throw new Error("Could not send e-mail.");
+        }
+        close(document.getElementById("contact-sidebar"));
+      }).catch((err) => {
+        console.log("Could not send e-mail message.");
+        console.log(err);
+      });
+    });
+  }
+
+  // src/dom-scripts/logo.ts
+  function setupLogoAnimation() {
+    const shell = document.getElementById("logo-toggle");
+    shell?.addEventListener("click", () => {
+      shell.classList.toggle("Logo__shell--toggled");
+    });
+  }
+
+  // src/dom-scripts/newsletter-widget.ts
+  function setupNewsletterWidget() {
+    const widget = document.getElementById("newsletter-widget");
+    const target = document.getElementById("main-footer");
+    if (!widget || !target) {
+      return;
+    }
+    widget.classList.add("NewsletterBar--visible");
+    document.getElementById("newsletter-bar-dismiss")?.addEventListener("click", () => {
+      widget.setAttribute("data-is-dismissed", "1");
+    });
+    const observer = new IntersectionObserver((entries) => {
+      const [entry] = entries;
+      if (entry.isIntersecting) {
+        widget?.setAttribute("data-has-completed", "1");
+        widget?.setAttribute("data-is-intersecting", "1");
+        return;
+      }
+      widget?.setAttribute("data-is-intersecting", "0");
+    });
+    observer.observe(target);
+  }
+
+  // src/dom-scripts/subnavs.ts
   function setupNavs() {
     const attr = "data-subnav-state";
     function toggleSubnav(ev) {
@@ -170,7 +189,7 @@
     });
   }
 
-  // ../src/dom-scripts/on-dom-content-loaded.ts
+  // src/dom-scripts/on-dom-content-loaded.ts
   function onDOMContentLoaded(cb) {
     if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", cb);
@@ -182,12 +201,13 @@
     onDOMContentLoaded(() => {
       setupCarousels();
       setupSidebars();
+      setupContactSidebar();
       setupNavs();
       setupNewsletterWidget();
       setupLogoAnimation();
     });
   }
 
-  // ../src/dom-scripts/client-init.ts
+  // src/dom-scripts/client-init.ts
   init();
 })();
